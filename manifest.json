@@ -15,7 +15,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/remove-items.ts-loader.ce57c452.js"
+        "assets/remove-items.ts-loader.43caa0cf.js"
       ],
       "matches": [
         "https://*.marktplaats.nl/*"
@@ -46,7 +46,7 @@
       ],
       "resources": [
         "assets/chrome-dev.c41397dc.js",
-        "assets/remove-items.ts.c8000de0.js"
+        "assets/remove-items.ts.146f6855.js"
       ],
       "use_dynamic_url": true
     }
