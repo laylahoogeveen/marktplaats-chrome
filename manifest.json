@@ -1,0 +1,54 @@
+{
+  "name": "Marktplaats ad blocker",
+  "description": "Marktplaats, maar dan zonder advertenties.",
+  "version": "0.0.0.1",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "assets/remove-items.ts-loader.ce57c452.js"
+      ],
+      "matches": [
+        "https://*.marktplaats.nl/*"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "src/pages/popup/index.html",
+    "default_title": "Marktplaats - ad blocker",
+    "default_icon": {
+      "16": "images/p16.png",
+      "32": "images/p32.png",
+      "48": "images/p48.png",
+      "128": "images/p128.png"
+    }
+  },
+  "icons": {
+    "16": "images/p16.png",
+    "32": "images/p32.png",
+    "48": "images/p48.png",
+    "128": "images/p128.png"
+  },
+  "options_page": "src/pages/options/index.html",
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://*.marktplaats.nl/*"
+      ],
+      "resources": [
+        "assets/chrome-dev.c41397dc.js",
+        "assets/remove-items.ts.c8000de0.js"
+      ],
+      "use_dynamic_url": true
+    }
+  ]
+}
