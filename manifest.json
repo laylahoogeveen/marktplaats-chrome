@@ -18,8 +18,10 @@
         "assets/remove-items.ts-loader.43caa0cf.js"
       ],
       "matches": [
-        "https://*.marktplaats.nl/*"
-      ]
+        "https://*.marktplaats.nl/*",
+        "https://marktplaats.nl/*"
+      ],
+      "match_origin_as_fallback": true
     }
   ],
   "action": {
@@ -42,7 +44,8 @@
   "web_accessible_resources": [
     {
       "matches": [
-        "https://*.marktplaats.nl/*"
+        "https://*.marktplaats.nl/*",
+        "https://marktplaats.nl/*"
       ],
       "resources": [
         "assets/chrome-dev.c41397dc.js",
