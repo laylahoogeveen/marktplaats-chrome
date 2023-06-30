@@ -1,1 +1,0 @@
-chrome.runtime.onMessage.addListener(function(e){if(!(!!e&&!!e.message))return e.message==="update_url"&&chrome.tabs.query({active:!0,currentWindow:!0},function(a){chrome.tabs.sendMessage(a[0].id,{message:"update_url"},function(n){n.message=="update_url_permission"&&r(e.newUrl)})}),!1});async function r(e){await chrome.tabs.update({url:e})}
