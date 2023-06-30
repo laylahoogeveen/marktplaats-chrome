@@ -19,13 +19,12 @@
   "content_scripts": [
     {
       "js": [
-        "assets/remove-items.ts-loader.5f4ef0ab.js"
+        "assets/remove-items.ts-loader.e5240bdf.js"
       ],
       "matches": [
         "https://*.marktplaats.nl/*",
         "https://marktplaats.nl/*"
-      ],
-      "match_origin_as_fallback": true
+      ]
     }
   ],
   "action": {
@@ -53,7 +52,7 @@
       ],
       "resources": [
         "assets/chrome-dev.c41397dc.js",
-        "assets/remove-items.ts.e26de631.js"
+        "assets/remove-items.ts.c912b355.js"
       ],
       "use_dynamic_url": true
     }
