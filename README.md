@@ -17,7 +17,7 @@ Zodra de extensie is toegevoegd, zal deze verschijnen in de lijst met geïnstall
 ## Hoe te gebruiken
 - Klik op de extensie. Dit opent een pop-up. Standaard worden dagtoppers, topadvertenties en advertenties van webshops verborgen. Je kunt deze weer tonen door deze toggletjes aan te zetten.
 
-<img width="310" alt="image" src="https://github.com/laylahoogeveen/marktplaats-chrome/assets/54817230/c5d5ac94-c58e-425e-99cf-b3bff7a52549">
+<img width="300" alt="image" src="https://github.com/laylahoogeveen/marktplaats-chrome/assets/54817230/99b0f732-f2a0-4927-a2de-6612f1e15b06">
 
 ## Het lukt niet. Help!
 
