@@ -1,0 +1,62 @@
+{
+  "../../../../../@crx/manifest": {
+    "file": "assets/crx-manifest.js-DbekZK9U.js",
+    "name": "crx-manifest.js",
+    "src": "../../../../../@crx/manifest",
+    "isEntry": true
+  },
+  "_chrome-dev-FtPME9q3.js": {
+    "file": "assets/chrome-dev-FtPME9q3.js",
+    "name": "chrome-dev"
+  },
+  "_index-!~{007}~.js": {
+    "file": "assets/index-CYi_AOaS.css",
+    "src": "_index-!~{007}~.js"
+  },
+  "_index-BEdTOfde.js": {
+    "file": "assets/index-BEdTOfde.js",
+    "name": "index",
+    "css": [
+      "assets/index-CYi_AOaS.css"
+    ]
+  },
+  "remove-items.ts-loader.js": {
+    "file": "assets/remove-items.ts-loader-BHeksCIn.js",
+    "src": "remove-items.ts-loader.js"
+  },
+  "src/background.ts": {
+    "file": "assets/background.ts-ArLcnbTo.js",
+    "name": "background.ts",
+    "src": "src/background.ts",
+    "isEntry": true
+  },
+  "src/content-scripts/remove-items.ts": {
+    "file": "assets/remove-items.ts-B3saj_VE.js",
+    "name": "remove-items.ts",
+    "src": "src/content-scripts/remove-items.ts",
+    "isEntry": true,
+    "imports": [
+      "_chrome-dev-FtPME9q3.js"
+    ]
+  },
+  "src/pages/options/index.html": {
+    "file": "assets/index.html-CN5NQvTz.js",
+    "name": "index.html",
+    "src": "src/pages/options/index.html",
+    "isEntry": true,
+    "imports": [
+      "_index-BEdTOfde.js",
+      "_chrome-dev-FtPME9q3.js"
+    ]
+  },
+  "src/pages/popup/index.html": {
+    "file": "assets/index.html-DZYYhU01.js",
+    "name": "index.html",
+    "src": "src/pages/popup/index.html",
+    "isEntry": true,
+    "imports": [
+      "_index-BEdTOfde.js",
+      "_chrome-dev-FtPME9q3.js"
+    ]
+  }
+}
