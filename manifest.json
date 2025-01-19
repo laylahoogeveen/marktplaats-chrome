@@ -19,7 +19,7 @@
   "content_scripts": [
     {
       "js": [
-        "assets/remove-items.ts-loader-BHeksCIn.js"
+        "assets/remove-items.ts-loader-D_Sq7Tu-.js"
       ],
       "matches": [
         "https://*.marktplaats.nl/*",
@@ -51,8 +51,9 @@
         "https://marktplaats.nl/*"
       ],
       "resources": [
-        "assets/chrome-dev-FtPME9q3.js",
-        "assets/remove-items.ts-B3saj_VE.js"
+        "assets/chrome-dev-DjaDa6xy.js",
+        "assets/strings-C9VxO2x6.js",
+        "assets/remove-items.ts-08A3b4hB.js"
       ],
       "use_dynamic_url": false
     }

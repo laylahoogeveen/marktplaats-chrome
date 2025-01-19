@@ -12,6 +12,7 @@ export const getPreferences = async () => {
   let showDagtopper = false;
   let showSponsored = false;
   let showWebshops = false;
+  let showBlockedUsers = false;
   if (!dagTopperPreference.showDagtopper) {
     await chrome.storage.sync.set({ showDagtopper: false });
   } else {
@@ -27,48 +28,70 @@ export const getPreferences = async () => {
   } else {
     showWebshops = webshopPreference.showWebshops;
   }
-  return { showDagtopper, showSponsored, showWebshops };
+  if (!webshopPreference.showBlockedUsers) {
+    await chrome.storage.sync.set({ showBlockedUsers: false });
+  } else {
+    showBlockedUsers = webshopPreference.showBlockedUsers;
+  }
+  return { showDagtopper, showSponsored, showWebshops, showBlockedUsers };
 };
 export const getSellerList = async () => {
+  return getStorageList("blockedSellers");
+};
+export const getUserList = async () => {
+  return getStorageList("blockedUsers");
+};
+const getStorageList = async (key) => {
   let result = [];
-  const localList = await chrome.storage.sync.get(["blockedSellers"]);
-  if (!!localList && localList.blockedSellers && localList.blockedSellers.length > 0) {
-    result = localList.blockedSellers;
+  const localList = await chrome.storage.sync.get([key]);
+  if (!!localList && localList[key] && localList[key].length > 0) {
+    result = localList[key];
     sortList(result);
   } else {
-    await chrome.storage.sync.set({ blockedSellers: [] });
+    const update = {};
+    update[key] = [];
+    await chrome.storage.sync.set(update);
   }
   return result;
 };
-export const addItemToList = async (input, currentList) => {
+export const addItemToList = async (key, input, currentList) => {
   if (!input) {
-    return;
+    return currentList;
   }
   const parsedInput = parseString(input);
-  if (!currentList.includes(input)) {
+  if (!currentList.includes(parsedInput)) {
     currentList.push(parsedInput);
     if (currentList.length > 0) {
       sortList(currentList);
     }
-    await updateSellerList(currentList);
+    await updateStorageList(key, currentList);
   }
   return currentList;
 };
-export const removeItemFromStorage = async (value, list) => {
+export const removeItemFromStorage = async (key, value, list) => {
   const index = list.indexOf(value);
   list.splice(index, 1);
-  await updateSellerList(list);
-  const newList = await getSellerList();
+  await updateStorageList(key, list);
+  const newList = await getStorageList(key);
   return newList;
 };
 export const updateSellerList = async (newList) => {
-  await chrome.storage.sync.set({ blockedSellers: newList });
+  await updateStorageList("blockedSellers", newList);
+};
+export const updateUserList = async (newList) => {
+  await updateStorageList("blockedUsers", newList);
+};
+const updateStorageList = async (key, newList) => {
+  const update = {};
+  update[key] = newList;
+  await chrome.storage.sync.set(update);
 };
 export const clearList = () => {
   if (confirm("Weet je het zeker? Dit verwijdert alle verkopers die nu in je lijstje staan.") == true) {
     remove();
   }
   async function remove() {
-    await chrome.storage.sync.set({ blockedSellers: [] });
+    const update = { blockedSellers: [], blockedUsers: [] };
+    await chrome.storage.sync.set(update);
   }
 };

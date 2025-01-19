@@ -101,7 +101,11 @@ async function removeItemsFromDOM(items, isListView) {
         return;
       }
       if (isListView) {
-        const isDagTopperOrTopadvertentie = !preferences.showDagtopper && adContainer.querySelector("span").innerHTML == "Dagtopper" || !preferences.showSponsored && adContainer.querySelector("span").innerHTML.trim() == "Topadvertentie";
+        const adInnerContent = adContainer.querySelector("span");
+        if (!adInnerContent) {
+          return;
+        }
+        const isDagTopperOrTopadvertentie = !preferences.showDagtopper && adInnerContent.innerHTML == "Dagtopper" || !preferences.showSponsored && adInnerContent.innerHTML.trim() == "Topadvertentie";
         if (!isDagTopperOrTopadvertentie) {
           const sellerContainer = getSingleItemByClassName("hz-Listing-seller-external-link", item);
           if (!sellerContainer) {
@@ -109,7 +113,11 @@ async function removeItemsFromDOM(items, isListView) {
           }
         }
       } else if (!isListView) {
-        const isDagTopperOrTopadvertentie = !preferences.showDagtopper && adContainer.querySelector("span").innerHTML == "Dagtopper" || !preferences.showSponsored && adContainer.querySelector("span").innerHTML.trim() == "Topadvertentie";
+        const adInnerContent = adContainer.querySelector("span");
+        if (!adInnerContent) {
+          return;
+        }
+        const isDagTopperOrTopadvertentie = !preferences.showDagtopper && adInnerContent.innerHTML == "Dagtopper" || !preferences.showSponsored && adInnerContent.innerHTML.trim() == "Topadvertentie";
         if (!isDagTopperOrTopadvertentie) {
           const sellerContainer = getSingleItemByClassName("hz-Listing-Opvalsticker-wrapper", item);
           if (!sellerContainer) {
@@ -150,6 +158,7 @@ function removeEmptyContainers() {
     "ad ad-1",
     "ad",
     "hz-Banner",
+    "bannerContainerLoading",
     "hz-Listings__container--casGallery"
   ];
   weirdBottoms.forEach((item) => {
@@ -175,6 +184,9 @@ async function toNextPage(isListView) {
     return;
   }
   const match = tabUrl.match(pageInUrlRegex);
+  if (!match) {
+    return;
+  }
   const matchTerm = match?.length > 0 ? match[match.length - 1] : null;
   if (matchTerm) {
     const page = parseInt(matchTerm);
